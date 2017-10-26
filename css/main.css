@@ -1,0 +1,611 @@
+/*	Converted text files are really ugly at 20px, fix these
+	Clarify name of mitsume dori, womens center or not?
+	have two scrolling divs, solution for changing ratio might be scroll divs within scroll divs?
+	Maybe have the variables update on media query rather than the elements swapping out 
+	Remove cursor pointer from all buttons (because its in button styling)
+	Remove hover function from menu, but maybe leave the hover function on the anchors to preview images
+	*/
+	
+/******************* Universal *******************/
+*, *::after, *::before { 
+	box-sizing: border-box; 
+}
+
+html {
+	/********** Font **********/
+	font-family: 'Gentona', 'Open Sans', Verdana, sans-serif;
+	font-weight: 300; /* Light */
+	font-style: normal;
+	font-size: 16px; /* 12pt */
+
+	/********** Color **********/
+	--color-background: rgb(255, 255, 255); /* organizing transparency and image background color is too hard to afford a simple background tint */
+	--color-background-alpha: rgba(255, 255, 255, 1);
+	--color-expand: rgba(0, 0, 0, .5);
+	--color-text: rgb(60, 60, 60);
+	--color-text-hover: rgb(100, 100, 100); /* Maybe this should be a darker color for hover */
+
+	/********** Layout **********/
+	--gutter: 20px; /* or should this be a viewport ratio? */
+	--scrollbar-width: 17px; /* based on max browser scrollbar width */
+
+	/* Widths */
+	/* ratio * (body-width - 4 gutters) */
+	--nav-w: calc(.2 * (var(--body-width) - (4 * var(--gutter))));
+	--img-w: calc(.525 * (var(--body-width) - (4 * var(--gutter))));
+	--text-w: calc(.275 * (var(--body-width) - (4 * var(--gutter))));
+
+	/* Heights */
+	/* (img height / img width) * absolute width */
+	--header-h: calc(.4205 * var(--nav-w)); /* based off header img dimensions */
+	--body-h: calc(100vh - (2 * var(--gutter)) - var(--header-h));
+
+	--body-width: 1800px; /* set body max-width */
+}
+
+@media(max-width: 1800px) { /* and here */
+	html {
+		--body-width: 100vw;
+	}
+}
+
+body {
+	position: relative; /* Positioned ancestor, no self effect */
+
+	max-width: var(--body-width); /* For wide-screen margins */
+	margin: 0 auto; /* Centers Body */
+
+	background-color: var(--color-background); /* Off White */
+}
+
+section {
+	overflow-y: auto; /* prevents child margins from collapsing into the parent's margin (thus ensuring that the height of the section accurately represents the height of its content, the parent of section doesn't need this (I think) because overflow: scroll also does this */
+	overflow-x: hidden; /* Fixes rotate absolute slider buttons from taking up space */
+
+	min-height: 100vh; /* not var(--body-h) because div extends full page */
+}
+
+/* Kill ugly button styling */
+button {
+	display: block;
+	
+	padding: 0;
+	margin: 0;
+	border: none;
+
+	background-color: inherit;
+	
+	cursor: pointer;
+}
+
+/******************* Text *******************/
+h1 {
+	/* Image Title Goes Here */
+	margin: 0;
+}
+
+h2 { /* content titles */
+	font-weight: 600; /* SemiBold */
+	font-size: 30px; /* 22pt */
+	margin: 0 0;
+
+	color: var(--color-text);
+}
+
+h3 { /* content subtitles */
+	font-weight: 300; /* Light */
+	font-size: 20px; /* 15pt */
+	margin: 0 0;
+
+	color: var(--color-text);
+}
+
+/* How to get wrapper link to change text color for two texts at a time? */
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--color-text-hover);
+	cursor: pointer;
+}
+
+a:active {
+	background-color: var(--color-background); /* Background Color (?) */
+}
+
+/******************* Img *******************/
+#img-box img {
+	display: block;
+
+	max-width: 100%;
+	max-height: var(--body-h);
+
+	margin: 0 auto var(--gutter) auto;
+
+
+}
+
+img:hover,
+#expand:hover {
+	cursor: pointer;
+}
+
+/* Expand */
+#expand {
+	display: none;  /* switch */
+}
+
+#expand.open {
+	display: block; /* switch */
+	position: fixed;
+	z-index: 3;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+
+	background-color: var(--color-expand);
+}
+
+#expand img {
+	position: absolute;
+	left: var(--gutter);
+	top: var(--gutter);
+	width: calc(100vw - (2 * var(--gutter)));
+	height: calc(100vh - (2 * var(--gutter)));
+
+	object-fit: contain;
+}
+
+/* Columns */
+#img-box .img-row {
+	clear: both;
+}
+
+#img-box .img-column {
+	width: calc((var(--img-w) - var(--gutter)) / 2);
+	float: left;
+}
+
+#img-box .img-column img {
+	max-height: unset;
+}
+
+#img-box .img-column:last-child {
+	margin-left: var(--gutter);
+}
+
+/********** Image Slider **********/
+.merged-img {display: none;} /* switch */
+
+.slider {
+	position: relative; /* needed to position buttons */
+	
+	margin: 0 auto;
+}
+
+/* Hider is needed so that buttons can be seen outside the slider */
+.hider {
+	overflow: hidden;
+}
+
+.sliderTray {
+	position: relative; /* needed to animate slider */
+}
+
+.sliderTray img {
+	object-fit: contain;
+	float: left;
+	width: calc(var(--text-w) - (2 * var(--gutter)) - (2 * var(--header-h)));
+	max-height: 40vh; /* even though size is based off of largest image, max height can still be capped here */
+}
+
+button.prev,
+button.next {
+	position: absolute;
+	z-index: 1; /* Fits between images and dropdown */
+
+	top: calc(50% - (var(--header-h)/2));
+	width: var(--header-h);
+	height: var(--header-h);
+
+	cursor: pointer;
+}
+
+button.prev {
+	left: calc(0px - (var(--gutter) + var(--header-h)));
+	transform: rotate(-45deg);
+
+}
+
+button.next {
+	right: calc(0px - (var(--gutter) + var(--header-h)));
+	transform: rotate(135deg);
+}
+
+button.prev div,
+button.next div {
+	position: absolute;
+
+	background-color: var(--color-text);
+	opacity: 1;
+
+	transition: left .2s ease,
+				top .2s ease,
+				opacity .1s ease;
+}
+
+/* Arrow */
+button.prev div:nth-child(1),
+button.prev div:nth-child(3),
+button.next div:nth-child(1),
+button.next div:nth-child(3) {
+	top: 40%;
+	left: 40%;
+	width: 60%;
+	height: 20%;
+}
+
+button.prev div:nth-child(2),
+button.prev div:nth-child(4),
+button.next div:nth-child(2),
+button.next div:nth-child(4) {
+	top: 60%;
+	left: 40%;
+	width: 20%;
+	height: 40%;
+}
+
+/* Animate */
+button.prev:hover div:nth-child(3),
+button.next:hover div:nth-child(3) {
+	top: 0%;
+	left: 0%;
+	width: 60%;
+	height: 20%;
+	opacity: 0;
+}
+
+button.prev:hover div:nth-child(4),
+button.next:hover div:nth-child(4) {
+	top: 0%;
+	left: 0%;
+	width: 20%;
+	height: 40%;
+	opacity: 0;
+}
+
+
+button.prev:hover,
+button.next:hover {
+	
+}
+
+/******************* Nav *******************/
+/* fix */
+nav a {
+	display: block;
+	margin-bottom: 25px;
+}
+
+/********** Wide **********/
+#nav-wide {
+	display: block; /* Switch */
+}
+
+#nav-wide a { /* Styling & Layout */
+	text-align: right;
+}
+
+/********** Med **********/
+#nav-med {
+	display: none; /* Switch */
+
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: var(--text-w);
+}
+
+.med-category { /* Force category elements infront of the dropdown box */
+	position: relative;
+	z-index: 3;
+}
+
+.med-project { /* Styling & Layout */
+	text-align: left;
+}
+
+/* Dropdown */
+#med-dd-content {
+	visibility: hidden;
+
+	position: absolute;
+	z-index: 2; /* Puts nav infront of text */
+	top: 0;
+	padding-top: calc(var(--header-h) + var(--gutter)); /* header + gutter */ /* Needed to keep hover active */
+	right: 0;
+	width: var(--text-w);
+	height: calc(100vh - var(--gutter)); /* result from not having a 100 height value */ /* this would be the use of a body height value? */
+
+	background-color: var(--color-background-alpha); /* Offwhite */
+}
+
+#med-dd-wrapper > a {
+	margin: 0; /* specificly kill the margin here because height of a buttons matter for layout */
+}
+
+/* Interaction */
+#med-dd-content.open {
+	visibility: visible; /* Show menu on hover of both elements or focus of button  */
+}
+
+#med-dd-button.open {
+}
+
+/********** Thin **********/
+#nav-thin {
+	display: none; /* Switch */
+
+	position: absolute;
+	right: 0;
+}
+
+/* Dropdown */
+#thin-dd-content {
+	visibility: hidden;
+	z-index: 2; /* Puts nav infront of text */
+
+	position: absolute;
+	
+	padding-top: calc(var(--header-h) + (2 * var(--gutter))); /* gutter + header + gutter */ /* Needed to keep hover active */
+	/* V these values actually remove the gutter because a full-screen background is needed but the content is a child of an element that has gutters */
+	padding-left: var(--gutter);
+	top: calc(0px - var(--gutter)); /* calc(0px - is needed for some reason */
+	right: calc(0px - var(--gutter));
+	width: calc(var(--text-w) + (2 * var(--gutter)));
+	height: 100vh; 
+
+	background-color: var(--color-background-alpha); /* Offwhite */
+}
+
+/* Interaction */
+#thin-dd-content.open {
+	visibility: visible; /* Show menu on hover of both elements or focus of button, might need to extend the width to full page, because gutters de-activate the hover */
+}
+
+/* Animated Button */
+#thin-dd-button { 
+	position: relative;
+	z-index: 3;
+	width: var(--header-h); /* Square */
+	height: var(--header-h);
+
+	cursor: pointer;
+}
+
+#thin-dd-button div {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 20%;
+
+	background-color: var(--color-text);
+	opacity: 1;
+
+	transition: transform .2s ease,
+				width .2s ease,
+				left .2s ease,
+				opacity .1s ease;
+}
+
+/* Hamburger */
+#thin-dd-button div:nth-child(1) {
+	top: 0%;
+}
+
+#thin-dd-button div:nth-child(2), #thin-dd-button div:nth-child(3) {
+	top: 40%;
+}
+
+#thin-dd-button div:nth-child(4) {
+	top: 80%;
+}
+
+/* Cross */
+#thin-dd-button.open div:nth-child(1) {
+	width: 0%;
+	left: 50%;
+
+	opacity: 0;
+}
+
+#thin-dd-button.open div:nth-child(2) {
+	transform: rotate(45deg);
+}
+
+#thin-dd-button.open div:nth-child(3) {
+	transform: rotate(-45deg);
+}
+
+#thin-dd-button.open div:nth-child(4) {
+	width: 0%;
+	left: 50%;
+
+	opacity: 0;
+}
+
+/******************* Layout *******************/
+header {
+	position: absolute;
+	z-index: 3; /* Stay infront of the mobile menu */
+	left: var(--gutter);
+	top: var(--gutter);	
+}
+
+svg { /* Dimensions need to be on the content or else the content's height will overflow */
+	width: auto;
+	height: var(--header-h);
+}
+
+#nav-box,
+#img-box,
+#text-box {
+	position: absolute;
+}
+
+#img-box,
+#text-box {
+	/*top: 0; */
+	height: 100%;
+
+	overflow-y: scroll;
+}
+
+#img-box section,
+#text-box section {
+	padding-top: calc(var(--header-h) + (2 * var(--gutter)));
+}
+
+#nav-box {
+	overflow-y: hidden; /* Don't add scrollbar, don't add page scrolling if menu goes out of reach, code to keep this from happening */
+
+	left: var(--gutter); /* gutter */
+	top: calc(var(--header-h) + (2 * var(--gutter))); /* gutter + header + gutter */
+	
+	width: var(--nav-w);	
+	height: var(--body-h); /* gutter + header + gutter */ /* must set height or else document has no height and thus no visual bottom */
+}
+
+#img-box {
+	/*left: calc(var(--nav-w) + (2 * var(--gutter))); /* gutter + nav + gutter */
+	width: calc(100% + var(--scrollbar-width));
+}
+
+#text-box {
+	/*left: calc(var(--nav-w) + var(--img-w) + (3 * var(--gutter))); /* gutter + nav + gutter + img + gutter */
+	width: calc(100% + var(--scrollbar-width));
+}
+
+/* Scrollbar Fix */
+
+/* cant use this because it doesnt work on firefox
+#img-box::-webkit-scrollbar,
+#text-box::-webkit-scrollbar { 
+	display: none;
+}
+*/
+
+/* some of these attributes belong to #img-box and #text-box, but must be shifted up to the parent wrapper for proper positioning*/
+#img-box-wrapper,
+#text-box-wrapper {
+	position: absolute;
+	top: 0;
+	height: 100vh;
+
+	margin-right: var(--scrollbar-width);
+
+	overflow: hidden;
+}
+
+#img-box-wrapper {
+	left: calc(var(--nav-w) + (2 * var(--gutter))); /* gutter + nav + gutter */
+	width: var(--img-w);
+}
+
+#text-box-wrapper {
+	left: calc(var(--nav-w) + var(--img-w) + (3 * var(--gutter))); /* gutter + nav + gutter + img + gutter */
+	width: var(--text-w);
+}
+
+/******************* Queries *******************/
+@media(max-width: 1450px) {
+	/******************* Variables *******************/
+	html {
+		/* Widths */
+		/* ratio * (body-width - 3 gutters) */
+		--nav-w: calc(1 * (var(--body-width) - (2 * var(--gutter))));
+		--img-w: calc(.625 * (var(--body-width) - (3 * var(--gutter))));
+		--text-w: calc(.375 * (var(--body-width) - (3 * var(--gutter))));
+
+		/* Heights */
+		/* ratio * (height - 2 gutters) */
+		--header-h: 10vh; /* arbitrary */
+		--body: calc(100vh - (2 * var(--gutter)) - var(--header-h));
+	}
+
+	/******************* Switches *******************/
+	#nav-wide {display: none;}
+	#nav-med {display: flex;} /* Rest of flex stuff is up top */
+
+	/******************* Layout *******************/
+	section {
+		min-height: var(--body-h);
+	}
+
+	#nav-box {
+		overflow-y: visible; /* ? */
+
+		top: var(--gutter);
+		height: var(--header-h); /* move to header */
+	}
+
+	#img-box,
+	#text-box-wrapper {
+		top: calc(var(--header-h) + (2 * var(--gutter))); /* gutter + header + gutter */
+		height: var(--body-h); /* change from 100vh */
+	}
+
+	#img-box section,
+	#text-box section {
+		padding-top: 0; /* From full page scroll of wide layout */
+	}
+
+	#img-box-wrapper {
+		left: var(--gutter); /* gutter */
+	}
+
+	#text-box-wrapper {
+		left: calc(var(--img-w) + (2 * var(--gutter))); /* gutter + img + gutter */
+	}
+}
+
+@media(max-width: 800px) {
+	/******************* Variables *******************/
+	html {
+		/* Widths */
+
+		/* ratio * (body-width - 2 gutters) */
+		--nav-w: calc(1* (var(--body-width) - (2 * var(--gutter))));
+		--img-w: calc(1* (var(--body-width) - (2 * var(--gutter))));
+		--text-w: calc(1* (var(--body-width) - (2 * var(--gutter))));
+
+
+		/* Heights */
+		/* ratio * (height - 2 gutters) */
+		--header-h: calc(.05 * (100vh - (2 * var(--gutter))));
+		--body: calc(.95 * (100vh - (2 * var(--gutter))));
+	}
+
+	/******************* Switches *******************/
+	#nav-med {display: none;}
+	#nav-thin {display: block;}
+
+	/* Image Merge */
+	#img-box {display: none;}
+	.merged-img {display: block;}
+
+	/******************* Layout *******************/
+	#nav-box {
+		overflow-y: visible; /* ? */
+	}
+
+	#text-box-wrapper {
+		left: var(--gutter);
+		top: calc(var(--header-h) + (2 * var(--gutter))); /* gutter + header + gutter */
+		height: var(--body-h);
+	}
+}

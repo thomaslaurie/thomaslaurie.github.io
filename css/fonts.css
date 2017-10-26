@@ -1,0 +1,130 @@
+/* Normal */
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 100;
+	font-style: normal;
+	src: url('../fonts/gentona-thin.woff2') format('woff2'),
+		 url('../fonts/gentona-thin.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 200;
+	font-style: normal;
+	src: url('../fonts/gentona-extralight.woff2') format('woff2'),
+		 url('../fonts/gentona-extralight.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 300;
+	font-style: normal;
+	src: url('../fonts/gentona-light.woff2') format('woff2'),
+		 url('../fonts/gentona-light.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 400;
+	font-style: normal;
+	src: url('../fonts/gentona-book.woff2') format('woff2'),
+		 url('../fonts/gentona-book.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 500;
+	font-style: normal;
+	src: url('../fonts/gentona-medium.woff2') format('woff2'),
+		 url('../fonts/gentona-medium.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 600;
+	font-style: normal;
+	src: url('../fonts/gentona-semibold.woff2') format('woff2'),
+		 url('../fonts/gentona-semibold.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 700;
+	font-style: normal;
+	src: url('../fonts/gentona-bold.woff2') format('woff2'),
+		 url('../fonts/gentona-bold.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 800;
+	font-style: normal;
+	src: url('../fonts/gentona-extrabold.woff2') format('woff2'),
+		 url('../fonts/gentona-extrabold.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 900;
+	font-style: normal;
+	src: url('../fonts/gentona-heavy.woff2') format('woff2'),
+		 url('../fonts/gentona-heavy.woff') format('woff');
+}
+
+/* Italic */
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 100;
+	font-style: italic;
+	src: url('../fonts/gentona-thin-italic.woff2') format('woff2'),
+		 url('../fonts/gentona-thin-italic.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 200;
+	font-style: italic;
+	src: url('../fonts/gentona-extralight-italic.woff2') format('woff2'),
+		 url('../fonts/gentona-extralight-italic.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 300;
+	font-style: italic;
+	src: url('../fonts/gentona-light-italic.woff2') format('woff2'),
+		 url('../fonts/gentona-light-italic.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 400;
+	font-style: italic;
+	src: url('../fonts/gentona-book-italic.woff2') format('woff2'),
+		 url('../fonts/gentona-book-italic.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 500;
+	font-style: italic;
+	src: url('../fonts/gentona-medium-italic.woff2') format('woff2'),
+		 url('../fonts/gentona-medium-italic.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 600;
+	font-style: italic;
+	src: url('../fonts/gentona-semibold-italic.woff2') format('woff2'),
+		 url('../fonts/gentona-semibold-italic.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 700;
+	font-style: italic;
+	src: url('../fonts/gentona-bold-italic.woff2') format('woff2'),
+		 url('../fonts/gentona-bold-italic.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 800;
+	font-style: italic;
+	src: url('../fonts/gentona-extrabold-italic.woff2') format('woff2'),
+		 url('../fonts/gentona-extrabold-italic.woff') format('woff');
+}
+@font-face {
+	font-family: 'Gentona';
+	font-weight: 900;
+	font-style: italic;
+	src: url('../fonts/gentona-heavy-italic.woff2') format('woff2'),
+		 url('../fonts/gentona-heavy-italic.woff') format('woff');
+}
+
