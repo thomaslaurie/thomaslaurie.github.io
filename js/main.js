@@ -228,16 +228,24 @@ $(document).ready(function() {
 							
 							// Offset + (Ratio * b Window Height)
 							b.scrollTop(offset + (progress * bh));
+
 						} else {
 							// Section Scroll Position = Ratio * Section Position
 							var scroll = (bsh / ash) * asp;	
 							// Progress = Top Position / (Section Height - Window Height)
-							var progress = asp / (ash - ah);
+
+							var progress
+							if(ash - ah <= 0) { // prevents dividing by 0 for sections the same height as window
+								progress = 0;
+							} else {
+								progress = asp / (ash - ah);
+							}
 							// Adjust = ((Height Ratio / Window Ratio) * Window Height) - 1 Window height
 							var adjust = (bsh/ash) * (ah/bh) * bh - bh;
 
 							// Total = bTop + Section Scroll Position + (Progress * Adjust)
 							b.scrollTop(bTop + scroll + progress * adjust);
+							console.log(progress);
 						}
 					}
 				}
