@@ -130,6 +130,7 @@ a:focus {
 
 button:focus {
 	outline: none;
+	background-color: unset; /* fix */
 }
 
 /******************* Nav *******************/
@@ -326,7 +327,7 @@ nav a p:last-child {
 	display: block;
 
 	max-width: 100%;
-	max-height: var(--body-h);
+	max-height: calc(var(--body-h) - var(--gutter));
 
 	margin: 0 auto calc(6 * var(--gutter)) auto;
 }
@@ -424,7 +425,8 @@ figcaption {
 
 /* Hider is needed so that buttons can be seen outside the slider */
 .hider {
-	overflow: hidden;
+	position: relative;
+	overflow: hidden; /* doesnt work on android???*/
 }
 
 .sliderTray {
