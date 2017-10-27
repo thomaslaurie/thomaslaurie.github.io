@@ -425,7 +425,7 @@ figcaption {
 
 /* Hider is needed so that buttons can be seen outside the slider */
 .hider {
-	
+	overflow: hidden;
 }
 
 .sliderTray {
