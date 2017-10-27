@@ -427,6 +427,8 @@ figcaption {
 .hider {
 	position: relative;
 	overflow: hidden; /* doesnt work on android???*/
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 .sliderTray {
