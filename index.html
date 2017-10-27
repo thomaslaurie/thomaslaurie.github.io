@@ -20,77 +20,69 @@
 		-->
 
 		<header>
-			<h1>
-			<svg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 252.22 106.05'><defs><style>.cls-1{fill:#3c3c3c;}</style></defs><title>Thomas Laurie</title><path class='cls-1' d='M69.19,7.11V32.17H62V7.11H51.81V.52h27.6V7.11Z'/><path class='cls-1' d='M103.69,32.17V19.46H90V32.17H82.78V.52H90V12.87h13.7V.52h7.21V32.17Z'/><path class='cls-1' d='M147,16.39c0,10.38-5.91,16.24-15.72,16.24s-15.72-5.86-15.72-16.24C115.51,5.86,121.38,0,131.23,0S147,5.86,147,16.39Zm-7.37,0c0-6.54-3.06-9.86-8.35-9.86s-8.35,3.32-8.35,9.86c0,6.38,3.06,9.7,8.35,9.7S139.59,22.78,139.59,16.39Z'/><path class='cls-1' d='M180.26,14V12.4L172,32.17h-4.62l-8.2-19.77v1.4l-.52,18.37h-7.31L152.56.52h8.2l8.15,19.09a16.71,16.71,0,0,1,.78,2.23c.16-.57.42-1.4.73-2.23L178.55.52h8.25L188,32.17h-7.31Z'/><path class='cls-1' d='M199.09,32.17h-7.78L203.6.52h9.81l12.24,31.65h-7.73l-2.23-5.86H201.27ZM209.47,9.49a29.44,29.44,0,0,1-1-3.22c-.26.88-.57,1.92-1,3.22l-3.79,10.22h9.65Z'/><path class='cls-1' d='M249.52,8.25C245,6.49,242.2,5.92,239.25,5.92c-2.28,0-3.94,1.14-3.94,2.7,0,2.18,1.71,2.75,8.15,4.88,6.12,2.08,8.77,4.31,8.77,9.7,0,5.92-4.36,9.44-11.15,9.44a31.84,31.84,0,0,1-14.58-4.2l2.7-5.6c4.62,2.44,8.4,3.53,11.52,3.53,2.33,0,3.74-1,3.74-2.75,0-2-1.14-2.75-7.42-4.62-5.76-1.71-9.13-4.46-9.13-9.8S231.78,0,238.68,0a31,31,0,0,1,13,2.85Z'/><path class='cls-1' d='M0,105.32V56H11.23V95H33.94v10.34Z'/><path class='cls-1' d='M49.3,105.32H37.17L56.33,56H71.6l19.07,49.29h-12l-3.48-9.13H52.69ZM65.46,70a45.94,45.94,0,0,1-1.54-5c-.4,1.37-.89,3-1.62,5l-5.9,15.92h15Z'/><path class='cls-1' d='M137.06,82.21C137.06,98,129.62,106,115,106S93,98,93,82.13V56h11.31v26.1c0,9.13,3.72,13.66,10.67,13.66,7.11,0,10.83-4.53,10.83-13.66V56h11.23Z'/><path class='cls-1' d='M188.37,105.32h-12L165.58,91h-8.32v14.3H146V56h19.72c13.58,0,21.17,6.46,21.17,17.94,0,7.35-3.72,12.69-10.18,15.27l11.64,15.19ZM165.83,81.8c6.38,0,9.94-2.83,9.94-7.84s-3.56-8.08-9.94-8.08h-8.57V81.8Z'/><path class='cls-1' d='M194.19,105.32V56h11.23v49.29Z'/><path class='cls-1' d='M216.25,105.32V56h35.31V66.29H227.49V76h20.69v9.86H227.49v9.37h24.73v10.1Z'/></svg>
-			</h1>
+			<h1 id='title'>
+			<a href=''><svg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 252.22 106.05'><defs><style>.cls-1{fill:#3c3c3c;}</style></defs><title>Thomas Laurie</title><path class='cls-1' d='M69.19,7.11V32.17H62V7.11H51.81V.52h27.6V7.11Z'/><path class='cls-1' d='M103.69,32.17V19.46H90V32.17H82.78V.52H90V12.87h13.7V.52h7.21V32.17Z'/><path class='cls-1' d='M147,16.39c0,10.38-5.91,16.24-15.72,16.24s-15.72-5.86-15.72-16.24C115.51,5.86,121.38,0,131.23,0S147,5.86,147,16.39Zm-7.37,0c0-6.54-3.06-9.86-8.35-9.86s-8.35,3.32-8.35,9.86c0,6.38,3.06,9.7,8.35,9.7S139.59,22.78,139.59,16.39Z'/><path class='cls-1' d='M180.26,14V12.4L172,32.17h-4.62l-8.2-19.77v1.4l-.52,18.37h-7.31L152.56.52h8.2l8.15,19.09a16.71,16.71,0,0,1,.78,2.23c.16-.57.42-1.4.73-2.23L178.55.52h8.25L188,32.17h-7.31Z'/><path class='cls-1' d='M199.09,32.17h-7.78L203.6.52h9.81l12.24,31.65h-7.73l-2.23-5.86H201.27ZM209.47,9.49a29.44,29.44,0,0,1-1-3.22c-.26.88-.57,1.92-1,3.22l-3.79,10.22h9.65Z'/><path class='cls-1' d='M249.52,8.25C245,6.49,242.2,5.92,239.25,5.92c-2.28,0-3.94,1.14-3.94,2.7,0,2.18,1.71,2.75,8.15,4.88,6.12,2.08,8.77,4.31,8.77,9.7,0,5.92-4.36,9.44-11.15,9.44a31.84,31.84,0,0,1-14.58-4.2l2.7-5.6c4.62,2.44,8.4,3.53,11.52,3.53,2.33,0,3.74-1,3.74-2.75,0-2-1.14-2.75-7.42-4.62-5.76-1.71-9.13-4.46-9.13-9.8S231.78,0,238.68,0a31,31,0,0,1,13,2.85Z'/><path class='cls-1' d='M0,105.32V56H11.23V95H33.94v10.34Z'/><path class='cls-1' d='M49.3,105.32H37.17L56.33,56H71.6l19.07,49.29h-12l-3.48-9.13H52.69ZM65.46,70a45.94,45.94,0,0,1-1.54-5c-.4,1.37-.89,3-1.62,5l-5.9,15.92h15Z'/><path class='cls-1' d='M137.06,82.21C137.06,98,129.62,106,115,106S93,98,93,82.13V56h11.31v26.1c0,9.13,3.72,13.66,10.67,13.66,7.11,0,10.83-4.53,10.83-13.66V56h11.23Z'/><path class='cls-1' d='M188.37,105.32h-12L165.58,91h-8.32v14.3H146V56h19.72c13.58,0,21.17,6.46,21.17,17.94,0,7.35-3.72,12.69-10.18,15.27l11.64,15.19ZM165.83,81.8c6.38,0,9.94-2.83,9.94-7.84s-3.56-8.08-9.94-8.08h-8.57V81.8Z'/><path class='cls-1' d='M194.19,105.32V56h11.23v49.29Z'/><path class='cls-1' d='M216.25,105.32V56h35.31V66.29H227.49V76h20.69v9.86H227.49v9.37h24.73v10.1Z'/></svg>
+			</a></h1>
 		</header>
 
 		<div id='nav-box'>
 			<nav id='nav-wide'>
 				<a href='#mitsume-dori'>
-					<h3>Architectural Pitch</h3>
-					<h2>Mitsume Dori Women's Center</h2>
+					<p>Pitch</p>
+					<p>Mitsume Dori</p>
 				</a>
 
 				<a href='#place'>
-					<h3>App</h3>
-					<h2>Place</h2>
+					<p>App</p>
+					<p>Place</p>
 				</a>
 
 				<a href='#jeti-rentals'>
-					<h3>Product Website</h3>
-					<h2>Jeti Rentals</h2>
+					<p>Website</p>
+					<p>Jeti Rentals</p>
 				</a>
 
 				<a href='#wbf'>
-					<h3>Promotional Poster</h3>
-					<h2>Welcome Back Fair</h2>
+					<p>Poster</p>
+					<p>Welcome Back Fair</p>
 				</a>
 
 				<a href='#about'>
-					<h2>About</h2>
-				</a>
-
-				<a href='#contact'>
-					<h2>Contact</h2>
+					<p>About</p>
 				</a>
 			</nav>
 
 			<nav id='nav-med'>
 				<div id='med-dd-wrapper'>
 					<a id='med-dd-button' class='med-category' tabindex='0'>
-						<h2>Projects</h2>
+						<p>Projects</p>
 					</a>
 
 					<div id='med-dd-content'>
 						<a class='med-project' href='#mitsume-dori'>
-							<h3>Architectural Pitch</h3>
-							<h2>Mitsume Dori Women's Center</h2>
+							<p>Pitch</p>
+							<p>Mitsume Dori</p>
 						</a>
 
 						<a class='med-project' href='#place'>
-							<h3>App</h3>
-							<h2>Place</h2>
+							<p>App</p>
+							<p>Place</p>
 						</a>
 
 						<a class='med-project' href='#jeti-rentals'>
-							<h3>Product Website</h3>
-							<h2>Jeti Rentals</h2>
+							<p>Website</p>
+							<p>Jeti Rentals</p>
 						</a>
 
 						<a class='med-project' href='#wbf'>
-							<h3>Promotional Poster</h3>
-							<h2>Welcome Back Fair</h2>
+							<p>Poster</p>
+							<p>Welcome Back Fair</p>
 						</a>
 					</div>
 				</div>
 
-				<a class='med-category' id='test2' href='#about'>
-					<h2>About</h2>
-				</a>
-
-				<a class='med-category' id='test' href='#contact'>
-					<h2>Contact</h2>
+				<a class='med-category' href='#about'>
+					<p>About</p>
 				</a>
 			</nav>
 
@@ -105,31 +97,27 @@
 
 					<div id='thin-dd-content'>
 						<a href='#mitsume-dori-thin'>
-							<h3>Architectural Pitch</h3>
-							<h2>Mitsume Dori Women's Center</h2>
+							<p>Pitch</p>
+							<p>Mitsume Dori</p>
 						</a>
 
 						<a href='#place-thin'>
-							<h3>App</h3>
-							<h2>Place</h2>
+							<p>App</p>
+							<p>Place</p>
 						</a>
 
 						<a href='#jeti-rentals-thin'>
-							<h3>Product Website</h3>
-							<h2>Jeti Rentals</h2>
+							<p>Website</p>
+							<p>Jeti Rentals</p>
 						</a>
 
 						<a href='#wbf-thin'>
-							<h3>Promotional Poster</h3>
-							<h2>Welcome Back Fair</h2>
+							<p>Poster</p>
+							<p>Welcome Back Fair</p>
 						</a>
 
 						<a href='#about-thin'>
-							<h2>About</h2>
-						</a>
-
-						<a href='#contact-thin'>
-							<h2>Contact</h2>
+							<p>About</p>
 						</a>
 					</div>
 				</div>
@@ -140,62 +128,98 @@
 		<div id="img-box-wrapper">
 			<div id='img-box'>
 				<section id='mitsume-dori'>
-					<h3>Exterior</h3>
-					<img src='img/exterior.jpg' alt='Exterior render of Mitsume Dori'>
-					<h3>Front Foyer</h3>
-					<img src='img/foyer.jpg' alt='Foyer render of Mitsume Dori showing children running to the play room and the park out side'>
-					<h3>Daycare Interior</h3>
-					<img src='img/playroom.jpg' alt='Playroom render of Mitsume Dori showing children playing and adults walking up the ramps'>
-					<h3>Model</h3>
-					<img src='img/exterior-white.jpg' alt='Elevated view of Mitsume Dori clearly showing its shape'>
-					<h3>Process Sketches</h3>
-					<img src='img/sketches-1.jpg' alt='Collage of form sketches for Mitsume Dori'>
-					<h3>Process Sketches</h3>
-					<img src='img/sketches-2.jpg' alt='Collage of template sketches for Mitsume Dori'>
-					<h3>Models</h3>
-					<img src='img/wire-diagrams.jpg' alt='Collage of different views of the 3D model of Mitsume Dori'>
-					<h3>Diagrams</h3>
-					<img src='img/color-diagrams.jpg' alt='Collage of diagrams for Mitsume Dori showing its program, circulation, and sunkedness'>
+					<figure>
+						<img src='img/exterior.jpg' alt='Exterior render of Mitsume Dori'>
+						<figcaption>Exterior</figcaption>
+					</figure>
+					
+					<figure>
+						<img src='img/foyer.jpg' alt='Foyer render of Mitsume Dori showing children running to the play room and the park out side'>
+						<figcaption>Front Foyer</figcaption>
+					</figure>
+					
+					<figure>
+						<img src='img/playroom.jpg' alt='Playroom render of Mitsume Dori showing children playing and adults walking up the ramps'>
+						<figcaption>Daycare Interior</figcaption>
+					</figure>
+					
+					<figure>
+						<img src='img/exterior-white.jpg' alt='Elevated view of Mitsume Dori clearly showing its shape'>
+						<figcaption>Model</figcaption>
+					</figure>
+					
+					<figure>
+						<img src='img/sketches-1.jpg' alt='Collage of form sketches for Mitsume Dori'>
+						<figcaption>Process Sketches</figcaption>
+					</figure>
+					
+					<figure>
+						<img src='img/sketches-2.jpg' alt='Collage of template sketches for Mitsume Dori'>
+						<figcaption>Process Sketches</figcaption>
+					</figure>
+					
+					<figure>
+						<img src='img/wire-diagrams.jpg' alt='Collage of different views of the 3D model of Mitsume Dori'>
+						<figcaption>Models</figcaption>
+					</figure>
+					
+					<figure>
+						<img src='img/color-diagrams.jpg' alt='Collage of diagrams for Mitsume Dori showing its program, circulation, and sunkedness'>
+						<figcaption>Diagrams</figcaption>
+					</figure>
 				</section>
 
 				<section id='place'>
-					<h3>Settings</h3>
-					<img src='img/place-settings.gif'>
-					<h3>Results</h3>
-					<img src='img/place-results.gif'>
+					<figure>
+						<img src='img/place-settings.gif'>
+						<figcaption>Settings</figcaption>
+					</figure>
+					
+					<figure>
+						<img src='img/place-results.gif'>
+						<figcaption>Results</figcaption>
+					</figure>
 				</section>
 
 				<section id='jeti-rentals'>
-					<h3>Webpages</h3>
-					<div class='img-row'>
-						<div class='img-column'>
-							<img src='img/jeti-home.jpg'>
+					<figure>
+						<div class='img-row'>
+							<div class='img-column'>
+								<img src='img/jeti-home.jpg'>
+							</div>
+							<div class='img-column'>
+								<img src='img/jeti-feature.jpg'>
+							</div>
 						</div>
-						<div class='img-column'>
-							<img src='img/jeti-feature.jpg'>
+						<figcaption>Landing &amp; Info Pages</figcaption>
+					</figure>
+
+					<figure>
+						<div class='img-row'>
+							<div class='img-column'>
+								<img src='img/jeti-book.jpg'>
+								
+							</div>
+							<div class='img-column'>
+								<img src='img/jeti-details.jpg'>
+								<img src='img/jeti-confirm.jpg'>
+							</div>
 						</div>
-					</div>
-					<div class='img-row'>
-						<div class='img-column'>
-							<img src='img/jeti-book.jpg'>
-							
-						</div>
-						<div class='img-column'>
-							<img src='img/jeti-details.jpg'>
-							<img src='img/jeti-confirm.jpg'>
-						</div>
-					</div>
+						<figcaption>Booking Process</figcaption>
+					</figure>
 				</section>
 
 				<section id='wbf'>
-					<h3>Welcome Back Fair Promotional Poster</h3>
-					<img src='img/wbf-poster.jpg'>
+					<!-- no figure here because only one image -->
+					<img class='bordered-img' src='img/wbf-poster.jpg'>
 				</section>
 
 				<section id='about'>
-				</section>
-
-				<section id='contact'>
+					<h2>Hi, I'm Thomas Laurie</h2>
+					<p>I’m a generalist with experience in web development, visual design, 3D modeling, and coding, though I’m still dipping my toes in different fields in search of my passion. </p>
+					<p>I am a more technically oriented person but I definitely maintain an appreciation for big ideas and artistic expression. </p>
+					<p>This season I’m studying app development and math in hopes these topics will help me in the future when I dive deeper into computer graphics and rendering.</p>
+					<p>It’s my goal to find a profession where I can be a creative force - where I can have the freedom to broaden my experiences and deepen my expertise in a field.</p>
 				</section>
 			</div>
 		</div>
@@ -211,7 +235,7 @@
 					<h3>Architectural Pitch</h3>
 					<h2>Mitsume Dori Women's Center</h2>
 
-					<div class='merged-img slider'>
+					<div class='merge slider'>
 						<button class='prev'><div></div><div></div><div></div><div></div></button>
 						<button class='next'><div></div><div></div><div></div><div></div></button>
 						<div class='hider'>
@@ -220,7 +244,7 @@
 								<img src='img/foyer.jpg'>
 								<img src='img/playroom.jpg'>
 							</div>  
-					</div>
+						</div>
 					</div>
 
 					<p>Mistume Dori was an architectural design project where my team and I conceptualized, iterated, and visualized a hybrid woman’s center/child daycare in the Mistume district of Tokyo, Japan.</p>
@@ -230,10 +254,10 @@
 				</section>
 
 				<section id='place-thin'>
-					<h3>App</h3>
+					<h3>App for Home Buyers</h3>
 					<h2>Place</h2>
 					
-					<div class='merged-img slider'>
+					<div class='merge slider'>
 						<button class='prev'><div></div><div></div><div></div><div></div></button>
 						<button class='next'><div></div><div></div><div></div><div></div></button>
 						<div class='hider'>
@@ -254,7 +278,7 @@
 					<h3>Product Website</h3>
 					<h2>Jeti Rentals</h2>
 
-					<div class='merged-img slider'>
+					<div class='merge slider'>
 						<button class='prev'><div></div><div></div><div></div><div></div></button>
 						<button class='next'><div></div><div></div><div></div><div></div></button>
 						<div class='hider'>
@@ -279,7 +303,7 @@
 					<h3>Promotional Poster</h3>
 					<h2>Welcome Back Fair</h2>
 
-					<div class='merged-img slider'>
+					<div class='merge slider'>
 						<button class='prev'><div></div><div></div><div></div><div></div></button>
 						<button class='next'><div></div><div></div><div></div><div></div></button>
 						<div class='hider'>
@@ -295,14 +319,16 @@
 				</section>
 
 				<section id='about-thin'>
-					<h2>Hi, I'm Thomas Laurie</h2>
-					<p>I’m a generalist with experience in web development, visual design, 3D modeling, and coding, though I’m still dipping my toes in different fields in search of my passion. </p>
-					<p>I am a more technically oriented person but I definitely maintain an appreciation for big ideas and artistic expression. </p>
-					<p>This season I’m studying app development and math in hopes these topics will help me in the future when I dive deeper into computer graphics and rendering.</p>
-					<p>It’s my goal to find a profession where I can be a creative force - where I can have the freedom to broaden my experiences and deepen my expertise in a field.</p>
-				</section>
+					<div class='merge'>
+						<h2>Hi, I'm Thomas Laurie</h2>
+						<p>I’m a generalist with experience in web development, visual design, 3D modeling, and coding, though I’m still dipping my toes in different fields in search of my passion. </p>
+						<p>I am a more technically oriented person but I definitely maintain an appreciation for big ideas and artistic expression. </p>
+						<p>This season I’m studying app development and math in hopes these topics will help me in the future when I dive deeper into computer graphics and rendering.</p>
+						<p>It’s my goal to find a profession where I can be a creative force - where I can have the freedom to broaden my experiences and deepen my expertise in a field.</p>
+					</div>
 
-				<section id='contact-thin'>
+					<h2>You Can Find Me Here:</h2>
+					<a href="mailto:thomas.laurie@outlook.com">thomas.laurie@outlook.com</a>
 				</section>
 			</div>
 		</div>

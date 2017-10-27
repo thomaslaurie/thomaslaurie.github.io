@@ -2,16 +2,25 @@
 
 $(document).ready(function() {
 	/******************* Nav Menus *******************/
-	$('#thin-dd-button').click(function() {
-		$('#thin-dd-content').toggleClass('open');
-		$('#thin-dd-button').toggleClass('open');
-	});
-
 	$('#med-dd-button').click(function() {
 		$('#med-dd-content').toggleClass('open');
 		$('#med-dd-button').toggleClass('open');
 	});
 
+	$('#med-dd-content .med-project').click(function() {
+		$('#med-dd-content').toggleClass('open');
+		$('#med-dd-button').toggleClass('open');
+	});
+
+	$('#thin-dd-button').click(function() {
+		$('#thin-dd-content').toggleClass('open');
+		$('#thin-dd-button').toggleClass('open');
+	});
+
+	$('#thin-dd-content a').click(function() {
+		$('#thin-dd-content').toggleClass('open');
+		$('#thin-dd-button').toggleClass('open');
+	});
 
 	/******************* Mobile Image Slider *******************/
 	function prepare(element) {
@@ -62,6 +71,10 @@ $(document).ready(function() {
 				element.find('.sliderTray img:last-child').prependTo(element.find('.sliderTray')); /* moves last child to start */
 				element.find('.sliderTray').css('left', ''); /* revert slide */
 			});
+
+			$(this).addClass('open').delay(200).queue(function() { /* must be same as longest transition speed in css */
+				$(this).removeClass('open').dequeue();
+			});
 		});
 
 		element.find('button.next').click(function() {
@@ -70,6 +83,10 @@ $(document).ready(function() {
 			element.find('.sliderTray').animate({left: -slideWidth}, 200, function() { /* slide left 1 image width */
 				element.find('.sliderTray img:first-child').appendTo(element.find('.sliderTray')); /* move first child to end */
 				element.find('.sliderTray').css('left', ''); /* revert slide */
+			});
+
+			$(this).addClass('open').delay(200).queue(function() { /* must be same as longest transition speed in css */
+				$(this).removeClass('open').dequeue();
 			});
 		});
 	}

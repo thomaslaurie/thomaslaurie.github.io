@@ -4,6 +4,7 @@
 	Maybe have the variables update on media query rather than the elements swapping out 
 	Remove cursor pointer from all buttons (because its in button styling)
 	Remove hover function from menu, but maybe leave the hover function on the anchors to preview images
+	find a happy medium with focus outlines
 	*/
 	
 /******************* Universal *******************/
@@ -21,9 +22,10 @@ html {
 	/********** Color **********/
 	--color-background: rgb(255, 255, 255); /* organizing transparency and image background color is too hard to afford a simple background tint */
 	--color-background-alpha: rgba(255, 255, 255, 1);
-	--color-expand: rgba(0, 0, 0, .5);
+	--color-expand: rgba(64, 64, 64, .75);
 	--color-text: rgb(60, 60, 60);
-	--color-text-hover: rgb(100, 100, 100); /* Maybe this should be a darker color for hover */
+	--color-text-hover: rgb(30, 30, 30); /* Maybe this should be a darker color for hover */
+	--color-light: rgb(200, 200, 200); /* image borders */
 
 	/********** Layout **********/
 	--gutter: 20px; /* or should this be a viewport ratio? */
@@ -82,12 +84,13 @@ button {
 h1 {
 	/* Image Title Goes Here */
 	margin: 0;
+	cursor: pointer; /* click to reload */
 }
 
 h2 { /* content titles */
 	font-weight: 600; /* SemiBold */
 	font-size: 30px; /* 22pt */
-	margin: 0 0;
+	margin: 0 auto calc(1 * var(--gutter)) auto;
 
 	color: var(--color-text);
 }
@@ -95,199 +98,71 @@ h2 { /* content titles */
 h3 { /* content subtitles */
 	font-weight: 300; /* Light */
 	font-size: 20px; /* 15pt */
-	margin: 0 0;
+	margin: 0 auto calc(0 * var(--gutter)) auto;
 
 	color: var(--color-text);
 }
 
+p {
+	margin: 0 auto var(--gutter) auto;
+}
+
+
 /* How to get wrapper link to change text color for two texts at a time? */
 a {
+	transition: 0.1s;
 	text-decoration: none;
+	color: var(--color-text);
 }
 
 a:hover {
+
 	color: var(--color-text-hover);
 	cursor: pointer;
 }
 
-a:active {
-	background-color: var(--color-background); /* Background Color (?) */
+a:active { /* on press */
 }
 
-/******************* Img *******************/
-#img-box img {
-	display: block;
-
-	max-width: 100%;
-	max-height: var(--body-h);
-
-	margin: 0 auto var(--gutter) auto;
-
-
+a:focus {
+	outline: none;
 }
 
-img:hover,
-#expand:hover {
-	cursor: pointer;
-}
-
-/* Expand */
-#expand {
-	display: none;  /* switch */
-}
-
-#expand.open {
-	display: block; /* switch */
-	position: fixed;
-	z-index: 3;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	height: 100vh;
-
-	background-color: var(--color-expand);
-}
-
-#expand img {
-	position: absolute;
-	left: var(--gutter);
-	top: var(--gutter);
-	width: calc(100vw - (2 * var(--gutter)));
-	height: calc(100vh - (2 * var(--gutter)));
-
-	object-fit: contain;
-}
-
-/* Columns */
-#img-box .img-row {
-	clear: both;
-}
-
-#img-box .img-column {
-	width: calc((var(--img-w) - var(--gutter)) / 2);
-	float: left;
-}
-
-#img-box .img-column img {
-	max-height: unset;
-}
-
-#img-box .img-column:last-child {
-	margin-left: var(--gutter);
-}
-
-/********** Image Slider **********/
-.merged-img {display: none;} /* switch */
-
-.slider {
-	position: relative; /* needed to position buttons */
-	
-	margin: 0 auto;
-}
-
-/* Hider is needed so that buttons can be seen outside the slider */
-.hider {
-	overflow: hidden;
-}
-
-.sliderTray {
-	position: relative; /* needed to animate slider */
-}
-
-.sliderTray img {
-	object-fit: contain;
-	float: left;
-	width: calc(var(--text-w) - (2 * var(--gutter)) - (2 * var(--header-h)));
-	max-height: 40vh; /* even though size is based off of largest image, max height can still be capped here */
-}
-
-button.prev,
-button.next {
-	position: absolute;
-	z-index: 1; /* Fits between images and dropdown */
-
-	top: calc(50% - (var(--header-h)/2));
-	width: var(--header-h);
-	height: var(--header-h);
-
-	cursor: pointer;
-}
-
-button.prev {
-	left: calc(0px - (var(--gutter) + var(--header-h)));
-	transform: rotate(-45deg);
-
-}
-
-button.next {
-	right: calc(0px - (var(--gutter) + var(--header-h)));
-	transform: rotate(135deg);
-}
-
-button.prev div,
-button.next div {
-	position: absolute;
-
-	background-color: var(--color-text);
-	opacity: 1;
-
-	transition: left .2s ease,
-				top .2s ease,
-				opacity .1s ease;
-}
-
-/* Arrow */
-button.prev div:nth-child(1),
-button.prev div:nth-child(3),
-button.next div:nth-child(1),
-button.next div:nth-child(3) {
-	top: 40%;
-	left: 40%;
-	width: 60%;
-	height: 20%;
-}
-
-button.prev div:nth-child(2),
-button.prev div:nth-child(4),
-button.next div:nth-child(2),
-button.next div:nth-child(4) {
-	top: 60%;
-	left: 40%;
-	width: 20%;
-	height: 40%;
-}
-
-/* Animate */
-button.prev:hover div:nth-child(3),
-button.next:hover div:nth-child(3) {
-	top: 0%;
-	left: 0%;
-	width: 60%;
-	height: 20%;
-	opacity: 0;
-}
-
-button.prev:hover div:nth-child(4),
-button.next:hover div:nth-child(4) {
-	top: 0%;
-	left: 0%;
-	width: 20%;
-	height: 40%;
-	opacity: 0;
-}
-
-
-button.prev:hover,
-button.next:hover {
-	
+button:focus {
+	outline: none;
 }
 
 /******************* Nav *******************/
 /* fix */
 nav a {
 	display: block;
-	margin-bottom: 25px;
+	margin-bottom: var(--gutter);
 }
+
+nav a:hover {
+	color: var(--color-text-hover);
+}
+
+nav a:active {
+	color: var(--color-text);
+}
+
+nav a p:first-child {
+	font-weight: 300; /* Light */
+	font-size: 20px; /* 15pt */
+	margin: 0;
+
+	color: unset;
+}
+
+nav a p:last-child {
+	font-weight: 600; /* SemiBold */
+	font-size: 30px; /* 22pt */
+	margin: 0;
+	
+	color: unset;
+}
+
 
 /********** Wide **********/
 #nav-wide {
@@ -303,11 +178,15 @@ nav a {
 	display: none; /* Switch */
 
 	flex-flow: row nowrap;
-	justify-content: space-between;
+	justify-content: left;
 	position: absolute;
 	top: 0;
 	right: 0;
 	width: var(--text-w);
+}
+
+.med-category {
+	margin-left: var(--gutter);
 }
 
 .med-category { /* Force category elements infront of the dropdown box */
@@ -360,14 +239,13 @@ nav a {
 	z-index: 2; /* Puts nav infront of text */
 
 	position: absolute;
-	
-	padding-top: calc(var(--header-h) + (2 * var(--gutter))); /* gutter + header + gutter */ /* Needed to keep hover active */
-	/* V these values actually remove the gutter because a full-screen background is needed but the content is a child of an element that has gutters */
-	padding-left: var(--gutter);
+	/* These values actually remove the gutter because a full-screen background is needed but the content is a child of an element that has gutters */
 	top: calc(0px - var(--gutter)); /* calc(0px - is needed for some reason */
 	right: calc(0px - var(--gutter));
 	width: calc(var(--text-w) + (2 * var(--gutter)));
 	height: 100vh; 
+
+	padding: calc(var(--header-h) + (2 * var(--gutter))) var(--gutter) 0 var(--gutter);
 
 	background-color: var(--color-background-alpha); /* Offwhite */
 }
@@ -399,7 +277,12 @@ nav a {
 	transition: transform .2s ease,
 				width .2s ease,
 				left .2s ease,
+				background-color .1s ease,
 				opacity .1s ease;
+}
+
+#thin-dd-button:hover div {
+	background-color: var(--color-text-hover);
 }
 
 /* Hamburger */
@@ -438,7 +321,217 @@ nav a {
 	opacity: 0;
 }
 
+/******************* Images *******************/
+#img-box img {
+	display: block;
+
+	max-width: 100%;
+	max-height: var(--body-h);
+
+	margin: 0 auto calc(6 * var(--gutter)) auto;
+}
+
+img:hover,
+#expand:hover {
+	cursor: pointer;
+}
+
+figure {
+	margin: 0;
+}
+
+#img-box figure img {
+	margin-bottom: 0;
+
+}
+
+figcaption {
+	font-weight: 300; /* Light */
+	font-size: 20px; /* 15pt */
+	margin: var(--gutter) 0 calc(6 * var(--gutter)) 0;
+
+	color: var(--color-text);
+
+	text-align: center;
+}
+
+.bordered-img {
+	border: 2px solid var(--color-light);
+}
+
+
+/* Expand */
+#expand {
+	display: none;  /* switch */
+}
+
+#expand.open {
+	display: block; /* switch */
+	position: fixed;
+	z-index: 3;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+
+	background-color: var(--color-expand);
+}
+
+#expand img {
+	position: absolute;
+	left: var(--gutter);
+	top: var(--gutter);
+	width: calc(100vw - (2 * var(--gutter)));
+	height: calc(100vh - (2 * var(--gutter)));
+
+	object-fit: contain;
+}
+
+/* Columns */
+/* clear fix */
+#img-box .img-row::after, figure::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+#img-box .img-column {
+	width: calc((var(--img-w) - var(--gutter)) / 2);
+	float: left;
+}
+
+#img-box .img-column img {
+	max-height: unset;
+	margin-bottom: var(--gutter); /* gutter margin between images */
+}
+
+#img-box .img-column img:last-child {
+	margin-bottom: inherit; /* but not on last image */
+}
+
+#img-box .img-column:last-child {
+	margin-left: var(--gutter);
+}
+
+/********** Image Slider **********/
+.merge {display: none;} /* switch */
+
+.slider {
+	position: relative; /* needed to position buttons */
+	
+	margin: 0 auto var(--gutter) auto;
+}
+
+/* Hider is needed so that buttons can be seen outside the slider */
+.hider {
+	overflow: hidden;
+}
+
+.sliderTray {
+	position: relative; /* needed to animate slider */
+}
+
+.sliderTray img {
+	object-fit: contain;
+	float: left;
+	width: calc(var(--text-w) - (2 * var(--gutter)) - (2 * var(--header-h)));
+	max-height: 40vh; /* even though size is based off of largest image, max height can still be capped here */
+}
+
+button.prev,
+button.next {
+	position: absolute;
+	z-index: 1; /* Fits between images and dropdown */
+
+	top: calc(50% - (var(--header-h)/2));
+	width: var(--header-h);
+	height: var(--header-h);
+
+	cursor: pointer;
+}
+
+button.prev {
+	left: calc(0px - (var(--gutter) + var(--header-h)));
+	transform: rotate(-45deg);
+
+}
+
+button.next {
+	right: calc(0px - (var(--gutter) + var(--header-h)));
+	transform: rotate(135deg);
+}
+
+button.prev div,
+button.next div {
+	position: absolute;
+
+	background-color: var(--color-text);
+	opacity: 1;
+
+	/* One-way transition */
+	transition: left 0s,
+				top 0s,
+				background-color 0s,
+				opacity 0s;
+}
+
+button.prev:hover div,
+button.next:hover div {
+	background-color: var(--color-text-hover);
+}
+
+/* Arrow */
+button.prev div:nth-child(1),
+button.prev div:nth-child(3),
+button.next div:nth-child(1),
+button.next div:nth-child(3) {
+	top: 40%;
+	left: 40%;
+	width: 60%;
+	height: 20%;
+}
+
+button.prev div:nth-child(2),
+button.prev div:nth-child(4),
+button.next div:nth-child(2),
+button.next div:nth-child(4) {
+	top: 60%;
+	left: 40%;
+	width: 20%;
+	height: 40%;
+}
+
+/* Animate */
+button.prev.open div:nth-child(3),
+button.next.open div:nth-child(3) {
+	top: 0%;
+	left: 0%;
+	width: 60%;
+	height: 20%;
+	opacity: 0;
+
+	transition: left .2s ease,
+				top .2s ease,
+				background-color .1s ease,
+				opacity .1s ease;
+}
+
+button.prev.open div:nth-child(4),
+button.next.open div:nth-child(4) {
+	top: 0%;
+	left: 0%;
+	width: 20%;
+	height: 40%;
+	opacity: 0;
+
+	transition: left .2s ease,
+			top .2s ease,
+			background-color .1s ease,
+			opacity .1s ease;
+}
+
 /******************* Layout *******************/
+/* Misc */
 header {
 	position: absolute;
 	z-index: 3; /* Stay infront of the mobile menu */
@@ -451,6 +544,13 @@ svg { /* Dimensions need to be on the content or else the content's height will 
 	height: var(--header-h);
 }
 
+#about {
+	margin: auto;
+	width: 400px; /* arbitrary*/
+	max-width: 100%;
+}
+
+/* Boxes */
 #nav-box,
 #img-box,
 #text-box {
@@ -573,7 +673,7 @@ svg { /* Dimensions need to be on the content or else the content's height will 
 	}
 }
 
-@media(max-width: 800px) {
+@media(max-width: 640px) {
 	/******************* Variables *******************/
 	html {
 		/* Widths */
@@ -596,7 +696,7 @@ svg { /* Dimensions need to be on the content or else the content's height will 
 
 	/* Image Merge */
 	#img-box {display: none;}
-	.merged-img {display: block;}
+	.merge {display: block;}
 
 	/******************* Layout *******************/
 	#nav-box {
