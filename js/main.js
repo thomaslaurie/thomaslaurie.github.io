@@ -59,7 +59,7 @@ $(document).ready(function() {
 		element.css({width: slideWidth, height: slideHeight});
 
 		/* tray width is sum of its images, left margin extends 1 image width past it's left border*/
-		element.find('.sliderTray').css({width: allWidth, marginLeft: -slideWidth});
+		element.find('.sliderTray').css({width: allWidth, height: slideHeight, marginLeft: -slideWidth}); /* added slideHeight here too (to fix android bug), don't know if needed */
 	}
 
 	function animate(element) {
