@@ -121,6 +121,9 @@ $(document).ready(function() {
 
 		// open expand div
 		$('#expand').toggleClass('open');
+		if ($(this).hasClass('scroll-img')) {
+			$('#expand').addClass('scroll-img');
+		}
 		// replace src and alt text
 		$('#expand img').attr({'src': path, 'alt': altText});
 	
@@ -135,6 +138,8 @@ $(document).ready(function() {
 
 	$('#expand').click(function() {
 		$('#expand').toggleClass('open'); /* Close when background is clicked */
+
+		$('#expand').removeClass('scroll-img');
 	});
 
 	/* Stops children elements from activating the click function *//* Ignore this for now, content-fit in css makes the dimensions of the image smaller than its click area, cant close unless clicking specifically on the gutters

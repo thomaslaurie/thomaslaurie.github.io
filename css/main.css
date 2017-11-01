@@ -5,6 +5,7 @@
 	Remove cursor pointer from all buttons (because its in button styling)
 	Remove hover function from menu, but maybe leave the hover function on the anchors to preview images
 	find a happy medium with focus outlines
+	join wrapper class into one class
 	*/
 	
 /******************* Universal *******************/
@@ -373,19 +374,32 @@ figcaption {
 	left: 0;
 	top: 0;
 	width: 100vw;
+	
 	height: 100vh;
 
 	background-color: var(--color-expand);
+
+	overflow-y: scroll;
 }
 
-#expand img {
+#expand.open img {
 	position: absolute;
 	left: var(--gutter);
 	top: var(--gutter);
 	width: calc(100vw - (2 * var(--gutter)));
 	height: calc(100vh - (2 * var(--gutter)));
-
+	
 	object-fit: contain;
+}
+
+/* Add scroll function for long images */
+#expand.open.scroll-img {
+	width: calc(100vw + var(--scrollbar-width));
+}
+
+#expand.open.scroll-img img {
+	height: auto;
+	padding-bottom: var(--gutter);
 }
 
 /* Columns */
