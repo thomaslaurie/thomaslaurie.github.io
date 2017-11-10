@@ -60,7 +60,7 @@ body {
 
 	background-color: var(--color-background); /* Off White */
 
-	background-color: blue;
+	background-color: red;
 }
 
 section {
@@ -437,8 +437,6 @@ figcaption {
 	position: relative; /* needed to position buttons */
 	
 	margin: 0 auto var(--gutter) auto;
-
-	max-height: 40vh;
 }
 
 /* Hider is needed so that buttons can be seen outside the slider */
