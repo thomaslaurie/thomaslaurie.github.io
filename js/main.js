@@ -55,8 +55,8 @@ $(document).ready(function() {
 
 		// Get content width from img, (because img is set to 100% proper content width)
 		var slideWidth = element.find('.sliderTray img').width();
-
-		var allWidth = 2 * count * slideWidth;
+		// Extra length is added here because widths arent updating properly in some browsers
+		var allWidth = count * slideWidth * 2;
 		
 		/* set slider dimensions based on image dimensions (single source) */
 		element.css({width: slideWidth, height: slideHeight});
@@ -96,6 +96,9 @@ $(document).ready(function() {
 
 	// Work
 	$('#text-box .slider').each(function() {
+			console.log($(this).height());
+
+
 			/* setup */
 			prepare($(this));
 			setDimensions($(this));

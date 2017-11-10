@@ -437,6 +437,8 @@ figcaption {
 	position: relative; /* needed to position buttons */
 	
 	margin: 0 auto var(--gutter) auto;
+
+	max-height: 40vh;
 }
 
 /* Hider is needed so that buttons can be seen outside the slider */
