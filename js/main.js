@@ -43,17 +43,26 @@ $(document).ready(function() {
 	}
 
 	function setDimensions(element) {
-		// Get Largest Image Height (after they're placed in flow)
-		var imgArray = [];
-		for(var i = 1; i < element.find('.sliderTray img').length; i++) {
-			imgArray.push(element.find('.sliderTray img:nth-of-type(' + i + ')').height());
-		}
-		var largestHeight = Math.max.apply(Math, imgArray);
-
-		var slideWidth = element.find('.sliderTray img').width();
-		var slideHeight = largestHeight;
 		var count = element.find('.sliderTray img').length;
-		var allWidth = count * slideWidth;
+
+		// Get Largest Image Height (after they're placed in flow), only needs to be done for one dimension because the other is fit by css contain
+		var imgHeightArray = [];
+		for(var i = 1; i <= count; i++) {
+			imgHeightArray.push(element.find('.sliderTray img:nth-of-type(' + i + ')').height());
+		}
+		var largestHeight = Math.max.apply(Math, imgHeightArray);
+		var slideHeight = largestHeight;
+
+		// Get content width from img, (because img is set to 100% proper content width)
+		var slideWidth = element.find('.sliderTray img').width();
+
+		var allWidth = 0;
+		for(var i = 1; i <= count; i++) {
+			allWidth = allWidth + element.find('.sliderTray img:nth-of-type(' + i + ')').width();
+		}
+
+		// why doesnt this work? all the widths are the same
+		//var allWidth = 1 * count * slideWidth;
 		
 		/* set slider dimensions based on image dimensions (single source) */
 		element.css({width: slideWidth, height: slideHeight});
