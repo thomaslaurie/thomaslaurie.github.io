@@ -55,14 +55,14 @@ $(document).ready(function() {
 
 		// Get content width from img, (because img is set to 100% proper content width)
 		var slideWidth = element.find('.sliderTray img').width();
-		// Extra length is added here because widths arent updating properly in some browsers
+		// Extra length * 2 is added here because widths arent updating properly in some browsers
 		var allWidth = count * slideWidth * 2;
 		
 		/* set slider dimensions based on image dimensions (single source) */
 		element.css({width: slideWidth, height: slideHeight});
 
 		/* tray width is sum of its images, left margin extends 1 image width past it's left border*/
-		//element.css({height: slideHeight});
+		element.css({height: slideHeight});
 		element.find('.sliderTray').css({width: allWidth, height: slideHeight, marginLeft: -slideWidth}); /* added slideHeight here too (to fix android bug), don't know if needed */
 	}
 
