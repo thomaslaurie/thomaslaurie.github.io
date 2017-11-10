@@ -56,13 +56,7 @@ $(document).ready(function() {
 		// Get content width from img, (because img is set to 100% proper content width)
 		var slideWidth = element.find('.sliderTray img').width();
 
-		var allWidth = 0;
-		for(var i = 1; i <= count; i++) {
-			allWidth = allWidth + element.find('.sliderTray img:nth-of-type(' + i + ')').width();
-		}
-
-		// why doesnt this work? all the widths are the same
-		//var allWidth = 1 * count * slideWidth;
+		var allWidth = 2 * count * slideWidth;
 		
 		/* set slider dimensions based on image dimensions (single source) */
 		element.css({width: slideWidth, height: slideHeight});
