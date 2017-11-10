@@ -59,6 +59,8 @@ body {
 	margin: 0 auto; /* Centers Body */
 
 	background-color: var(--color-background); /* Off White */
+
+	background-color: red;
 }
 
 section {
