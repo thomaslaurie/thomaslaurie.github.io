@@ -97,8 +97,6 @@ $(document).ready(function() {
 
 	// Work
 	$('#text-box .slider').each(function() {
-			console.log($(this).height());
-
 			/* setup */
 			prepare($(this));
 			setDimensions($(this));

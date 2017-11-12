@@ -60,7 +60,6 @@ body {
 
 	background-color: var(--color-background); /* Off White */
 
-	background-color: green;
 }
 
 section {
@@ -606,6 +605,9 @@ svg { /* Dimensions need to be on the content or else the content's height will 
 	/*left: calc(var(--nav-w) + var(--img-w) + (3 * var(--gutter))); /* gutter + nav + gutter + img + gutter */
 	width: calc(100% + var(--scrollbar-width));
 }
+
+/* MOBILE ISSUE, No scrollbar on mobile so content is cut off */
+
 
 /* Scrollbar Fix */
 
