@@ -37,14 +37,19 @@
 					<p>Place</p>
 				</a>
 
-				<a href='#jeti-rentals'>
-					<p>Website</p>
-					<p>Jeti Rentals</p>
+				<a href='#gryphon-cover'>
+					<p>Cover</p>
+					<p>The Gryphon</p>
 				</a>
 
 				<a href='#wbf'>
 					<p>Poster</p>
 					<p>Welcome Back Fair</p>
+				</a>
+
+				<a href='#jeti-rentals'>
+					<p>Website</p>
+					<p>Jeti Rentals</p>
 				</a>
 
 				<a href='#about'>
@@ -69,14 +74,19 @@
 							<p>Place</p>
 						</a>
 
-						<a class='med-project' href='#jeti-rentals'>
-							<p>Website</p>
-							<p>Jeti Rentals</p>
+						<a class='med-project' href='#gryphon-cover'>
+							<p>Cover</p>
+							<p>The Gryphon</p>
 						</a>
 
 						<a class='med-project' href='#wbf'>
 							<p>Poster</p>
 							<p>Welcome Back Fair</p>
+						</a>
+
+						<a class='med-project' href='#jeti-rentals'>
+							<p>Website</p>
+							<p>Jeti Rentals</p>
 						</a>
 					</div>
 				</div>
@@ -106,14 +116,19 @@
 							<p>Place</p>
 						</a>
 
-						<a href='#jeti-rentals-thin'>
-							<p>Website</p>
-							<p>Jeti Rentals</p>
+						<a href='#gryphon-cover-thin'>
+							<p>Cover</p>
+							<p>The Gryphon</p>
 						</a>
 
 						<a href='#wbf-thin'>
 							<p>Poster</p>
 							<p>Welcome Back Fair</p>
+						</a>
+
+						<a href='#jeti-rentals-thin'>
+							<p>Website</p>
+							<p>Jeti Rentals</p>
 						</a>
 
 						<a href='#about-thin'>
@@ -181,6 +196,32 @@
 					</figure>
 				</section>
 
+				<section id='gryphon-cover'>
+					<figure>
+						<div class='img-row'>
+							<div class='img-column'>
+								<img src='img/cover.jpg'>
+							</div>
+							<div class='img-column'>
+								<img src='img/back.jpg'>
+							</div>
+						</div>
+						<figcaption>Cover &amp; Back</figcaption>
+					</figure>
+
+					<!--
+					<figure>
+						<img src='img/printed.jpg'>
+						<figcaption>Printed Magazine</figcaption>
+					</figure>
+					-->
+				</section>
+
+				<section id='wbf'>
+					<!-- no figure here because only one image -->
+					<img class='bordered-img' src='img/wbf-poster.jpg'>
+				</section>
+
 				<section id='jeti-rentals'>
 					<figure>
 						<div class='img-row'>
@@ -209,17 +250,12 @@
 					</figure>
 				</section>
 
-				<section id='wbf'>
-					<!-- no figure here because only one image -->
-					<img class='bordered-img' src='img/wbf-poster.jpg'>
-				</section>
-
 				<section id='about'>
+					<!-- TODO ensure the same as below -->
 					<h2>Hi, I'm Thomas Laurie</h2>
-					<p>I’m a generalist with experience in web and app development, visual design, 3D modeling, and coding, though I’m still dipping my toes in different fields in search of my passion. </p>
-					<p>My two biggest strengths are communicative design and my technical understanding of web/app interfaces.</p>
-					<p>This term I've decided to embrace these two directions by furthering my studies in speculative design and PHP so that I have both the ideological foundation and ability to execute an upcoming web/app project - start to finish, front to back.</p>
-					<p>It’s my goal to find a profession where I can be a creative force, where I can have the freedom to broaden my experience and deepen my expertise in the field.</p>
+					<p>I'm a recent graduate with skills in web/app development, visual representation, and 3D modelling. It is my goal to find a career where I can be a creative force.</p>
+					<p>Lately I've been motivated to fulfill my own user-needs in today's app landscape. These needs tend to be music related, ranging from discovery and listening, to organization and metadata. I have enough confidence that with enough time and effort I could personally build my envisioned solutions.</p>
+					<p>Currently I've been working on one of these ideas as a personal project, additionally aiming to tie up my educational learnings into a polished, full-stack web app. With this I want to express my ability to code, debug, and understand technical systems, and showcase my design skills, understanding of user experience, and artistic creativity. I've chosen to not just rely on what I already know but also to seek out the best tools for my use case, this has lead me to pick up Node, PostgreSQL, Vue, and a larger knowledge of modern JavaScript.</p>
 				</section>
 			</div>
 		</div>
@@ -269,9 +305,51 @@
 					</div>
 
 					<p>Place was a mobile application for new home buyers designed to reduce the workload of searching home listings by parsing data based on user settings and then presenting matches to the user in a hot-or-not fashion.</p>
-					<p>My group and I ideated and designed the front-end functionality of the app using Proto.io where my main contribution to the project was the visual design of the app.</p>
+					<p>My group and I ideated and designed the front-end functionality of the app using Proto.io, my main contribution to the project was the visual design of the app.</p>
 					<p>Through user research we found that home buyers faced a much larger workload if they want to know what amenities are near each listing. Classifieds sites give information about the interior of the home but seldom give information about the place surrounding the home. Manually searching maps for this information greatly increases the workload. Our solution was to flip the harder area-searching workload onto the app and let the users do the more interactive sorting of listings, ones that they know will be in a place that meets their needs.</p>
 					<p>In this project I learned how to optimize task-flows by designing interfaces to better match a user’s mental model of the system and decrease the number of actions required to perform a task.</p>
+				</section>
+
+				<section id='gryphon-cover-thin'>
+					<h3>Magazine Cover</h3>
+					<h2>The Gryphon</h2>
+
+					<div class='merge slider'>
+						<button class='prev'><div></div><div></div><div></div><div></div></button>
+						<button class='next'><div></div><div></div><div></div><div></div></button>
+						<div class='hider'>
+							<div class='sliderTray'>
+								<img src='img/cover.jpg'>
+								<img src='img/back.jpg'>
+								<!-- TODO printed photo-->
+							</div>  
+						</div>
+					</div>
+
+					<p>This cover was for a school magazine called The Gryphon printed three times a year and mailed to over 300 families and friends of the school. This volume was to highlight the school's outdoor education program, therefore my final iteration resembles the motion of aiding growth, which links together the slogan, education, and gardening (a common outdoor activity for the primary school students).</p>
+					<p>I was individually assigned to create graphics for the cover and back. Expectations where fairly open ended where I was only prompted with the theme, slogan, and examples from previous volumes.</p>
+					<p>It was completed on the side over the course of about three weeks. I iterated the design through refined sketches, playing with composition, flow, and typography. Once confident, I moved to Illustrator where I chose a rough-vector style that would allow me to blend image-traces (dirt textures, background spatters) with drawn shapes (hands, plant). The color count was reduced to unify each element in the image as well to match the simplicity of the vector style. I wanted the cover and back to be semi-continuous so the background was drawn across both pages.</p>
+					<p>This project gave me an opportunity to revisit my artistic side that I hadn't been exercising in my design program. I was able to apply my learning of the design process to the actions of sketching, refining, and eventually brining a graphic to its finalized polished form.</p>
+				</section>
+
+				<section id='wbf-thin'>
+					<h3>Promotional Poster</h3>
+					<h2>Welcome Back Fair</h2>
+
+					<div class='merge slider'>
+						<button class='prev'><div></div><div></div><div></div><div></div></button>
+						<button class='next'><div></div><div></div><div></div><div></div></button>
+						<div class='hider'>
+							<div class='sliderTray'>
+								<img src='img/wbf-poster.jpg'>
+							</div>  
+						</div>
+					</div>
+
+					<p>This poster was a promotional piece for a fair hosted by Meadowridge School.</p>
+					<p>While the information requirements were firm the aesthetic was entirely of my creation.</p>
+					<p>I created the entire poster using photos sourced from our internal archive and Photoshop and Illustrator to do editing and typographic work.</p>
+					<p>I was asked to refresh this poster in 2018 after completing it the first time in 2017. The first time I was obsessing over minor details that didn't matter and had to learn how to step back and settle on a final version. This time around I was able to quickly do a review over the entire document, only having to edit the graphics, content, and layout rather than create something original entirely.</p>
 				</section>
 
 				<section id='jeti-rentals-thin'>
@@ -293,42 +371,22 @@
 						</div>
 					</div>
 
-					<p>Jeti Rentals was a website project where the goal was to create several front-end pages that would help a visitor accomplish different tasks, each of these tasks would guide the visitor towards the purchase of a service – Jet Ski rentals.</p>
+					<p>Jeti Rentals was a course project where the goal was to create several front-end web-pages that would help a visitor accomplish different tasks, each of these tasks would guide the visitor towards the purchase of a service – Jet Ski rentals.</p>
 					<p>My partner and I contributed equally to the entire process which involved wireframing, page flow, and functionality using Axure, styling using Illustrator, and scripting using Git to maintain version control.</p>
 					<p>I was fairly new to HTML/CSS and Git when building this site and most of the problems stemmed from converting static wireframe elements into web-coded elements that were functional and responsive. The real challenge here was developing a workflow for debugging an issue, searching references for solutions, then testing the elements to ensure that they work.</p>
 					<p>This project gave me the opportunity to learn how to build the front-end of a site from the ground up. I solidified my understanding of HTML, CSS, optimization techniques, Git collaboration, and debugging.</p>
 				</section>
 
-				<section id='wbf-thin'>
-					<h3>Promotional Poster</h3>
-					<h2>Welcome Back Fair</h2>
-
-					<div class='merge slider'>
-						<button class='prev'><div></div><div></div><div></div><div></div></button>
-						<button class='next'><div></div><div></div><div></div><div></div></button>
-						<div class='hider'>
-							<div class='sliderTray'>
-								<img src='img/wbf-poster.jpg'>
-							</div>  
-						</div>
-					</div>
-
-					<p>This poster was a promotional piece for a fair hosted by Meadowridge School which I was working for during the summer. I created the entire poster using photos sourced from our internal archive and Photoshop and Illustrator to do editing and typographic work.</p>
-					<p>From past projects I’ve made it a habit to strive for perfection through details and to ensure that each design decision has a justification behind it. This was actually a personal challenge to overcome because the poster was fairly low-impact and didn’t have many guidelines to start with.</p>
-					<p>I spent some time meddling over insignificant details but eventually learned to let go as I realized that some projects require a more heuristic approach.</p>
-				</section>
-
 				<section id='about-thin'>
 					<div class='merge'>
 						<h2>Hi, I'm Thomas Laurie</h2>
-						<p>I’m a generalist with experience in web and app development, visual design, 3D modeling, and coding, though I’m still dipping my toes in different fields in search of my passion. </p>
-						<p>My two biggest strengths are communicative design and my technical understanding of web/app interfaces.</p>
-						<p>This term I've decided to embrace these two directions by furthering my studies in speculative design and PHP so that I have both the ideological foundation and ability to execute an upcoming web/app project - start to finish, front to back.</p>
-						<p>It’s my goal to find a profession where I can be a creative force, where I can have the freedom to broaden my experience and deepen my expertise in the field.</p>
+						<p>I'm a recent graduate with skills in web/app development, visual representation, and 3D modelling. It is my goal to find a career where I can be a creative force.</p>
+						<p>Lately I've been motivated to fulfill my own user-needs in today's app landscape. These needs tend to be music related, ranging from discovery and listening, to organization and metadata. I have enough confidence that with enough time and effort I could personally build my envisioned solutions.</p>
+						<p>Currently I've been working on one of these ideas as a personal project, additionally aiming to tie up my educational learnings into a polished, full-stack web app. With this I want to express my ability to code, debug, and understand technical systems, and showcase my design skills, understanding of user experience, and artistic creativity. I've chosen to not just rely on what I already know but also to seek out the best tools for my use case, this has lead me to pick up Node, PostgreSQL, Vue, and a larger knowledge of modern JavaScript.</p>
 					</div>
 
 					<h2>You Can Find Me Here:</h2>
-					<a href="mailto:tlaurie@sfu.ca">tlaurie@sfu.ca</a>
+					<a href="mailto:thomas.laurie@outlook.com">thomas.laurie@outlook.com</a>
 				</section>
 			</div>
 		</div>
@@ -339,7 +397,9 @@
 		<script src='js/main.js'></script>-->
 
 		<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-		<script>window.jQuery || document.write('<script src='jquery-3.2.1.min.js'><\/script>')</script> <!-- fallback -->
+		<script>
+			window.jQuery || document.write("<script src='jquery-3.2.1.min.js'><\/script>")
+		</script> <!-- fallback -->
 		<script src='js/main.js'></script>
 	</body>
 </html>

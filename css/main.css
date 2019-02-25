@@ -12,9 +12,17 @@
 *, *::after, *::before { 
 	box-sizing: border-box; 
 	transition: all 0.1s ease; /* thanks sandy */
+
+	/* TODO doesnt seem to work
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	try: 
+	https://stackoverflow.com/questions/17867574/chrome-not-antialiasing-text
+	http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+
+	*/
 }
-
-
 
 html {
 	/********** Font **********/
@@ -362,7 +370,7 @@ figcaption {
 }
 
 .bordered-img {
-	border: 2px solid var(--color-light);
+	border: 1px solid var(--color-light);
 }
 
 

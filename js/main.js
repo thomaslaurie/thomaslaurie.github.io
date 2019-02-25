@@ -254,7 +254,6 @@ $(document).ready(function() {
 
 							// Total = bTop + Section Scroll Position + (Progress * Adjust)
 							b.scrollTop(bTop + scroll + progress * adjust);
-							console.log(progress);
 						}
 					}
 				}
