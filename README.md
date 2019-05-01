@@ -1,1 +1,3 @@
-# thomaslaurie.github.io
+# Portfolio Website
+
+http://www.tlaurie.com/
