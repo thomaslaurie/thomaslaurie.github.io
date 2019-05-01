@@ -1,3 +1,3 @@
-# Portfolio Website
+# Portfolio
 
-http://www.tlaurie.com/
+http://www.tlaurie.com
